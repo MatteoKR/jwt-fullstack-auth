@@ -1,0 +1,159 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+/* Header pagina */
+.header {
+  width: 100%;
+  max-width: 900px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Titolo principale */
+.main-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Sezioni */
+section {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  padding: 20px 24px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Titoli sezioni più piccoli */
+.section-title.small {
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Sezione aggiungi task */
+.add-task {
+  display: flex;
+  gap: 12px;
+}
+
+.add-task input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.add-task button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.add-task button:hover {
+  background: #155fa0;
+}
+
+/* Lista task */
+.task-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+  padding: 10px 14px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.task-list li.completed .title {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.title {
+  flex: 1;
+}
+
+input[type="checkbox"] {
+  accent-color: #43a047;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Bottone elimina */
+.delete-btn {
+  background: white;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: box-shadow 0.2s, transform 0.1s, color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #d32f2f;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transform: translateY(-1px);
+}
+
+/* Logout */
+.logout-btn {
+  width: 100%;
+  max-width: 900px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #e53935;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.logout-btn:hover {
+  background: #c62828;
+}
+
+/* Messaggi errore */
+.error {
+  color: #d32f2f;
+  margin-bottom: 12px;
+  font-weight: 500;
+}

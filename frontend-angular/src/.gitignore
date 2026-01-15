@@ -1,0 +1,14 @@
+# Angular
+node_modules/
+dist/
+
+# Spring
+target/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

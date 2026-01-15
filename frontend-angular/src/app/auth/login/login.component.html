@@ -1,0 +1,13 @@
+<div class="container">
+<h2>Login</h2>
+  <form (submit)="login()">
+    <input type="text" [(ngModel)]="username" name="username" placeholder="Username">
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
+    <!-- messaggio di errore -->
+    <div *ngIf="errorMessage" style="color: red; margin-bottom: 10px;">
+    {{ errorMessage }}
+    </div>
+    <button type="submit">Login</button>
+    <p>Non sei ancora registrato? <a routerLink="/register">Registrati</a></p>
+  </form>
+</div>
