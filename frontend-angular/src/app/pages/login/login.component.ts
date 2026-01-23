@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { NgIf } from '@angular/common'; 
 import { RouterModule, Router } from '@angular/router';
 
@@ -30,7 +30,7 @@ export class LoginComponent {
         },
         error: (err) => {
           console.error('Errore login', err);
-          this.errorMessage = err.error || 'Errore generico';
+          this.errorMessage = err.error || 'Password errata';
         },
       });
   }

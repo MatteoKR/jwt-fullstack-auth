@@ -1,0 +1,84 @@
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="logo">🗂 TaskManager</span>
+  </div>
+
+  <div class="nav-right">
+    <span class="user">Ciao, {{ username }}</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="dashboard">
+
+  <h1 class="page-title">Le tue attività</h1>
+  <p class="page-subtitle">Organizza e tieni traccia dei tuoi task quotidiani</p>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- ADD TASK CARD -->
+  <section class="card add-task-card">
+    <h3>Aggiungi un nuovo task</h3>
+
+    <div class="add-task">
+      <input
+        type="text"
+        [(ngModel)]="newTaskTitle"
+        placeholder="Scrivi il titolo del task..."
+      />
+      <button (click)="addTask()">Aggiungi</button>
+    </div>
+  </section>
+
+  <!-- TASK LIST CARD -->
+  <section class="card">
+    <h3>I tuoi task</h3>
+
+    <ul class="task-list">
+      <li *ngFor="let task of tasks" [class.completed]="task.completed">
+  <label>
+    <input
+      type="checkbox"
+      [checked]="task.completed"
+      (change)="toggleCompletion(task)"
+    />
+    <span class="title">{{ task.title }}</span>
+  </label>
+
+  <!-- BOTTONE X -->
+  <button
+    class="delete-btn"
+    (click)="confirmDelete(task)"
+    title="Elimina task"
+  >
+    ×
+  </button>
+</li>
+    </ul>
+
+    <p *ngIf="tasks.length === 0" class="empty">
+      Nessun task presente. Inizia aggiungendone uno.
+    </p>
+  </section>
+
+</main>
+
+ <!-- DELETE CONFIRM MODAL -->
+<div class="modal-backdrop" *ngIf="showDeleteConfirm">
+  <div class="modal">
+    <h3>Eliminare il task?</h3>
+    <p>
+      Sei sicuro di voler eliminare
+      <strong>"{{ taskToDelete?.title }}"</strong>?
+    </p>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="cancelDelete()">Annulla</button>
+      <button class="btn-delete" (click)="deleteConfirmed()">Elimina</button>
+    </div>
+  </div>
+</div>

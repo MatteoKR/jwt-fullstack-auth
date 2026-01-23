@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../task/task.service';
-import { Task } from '../models/task.model';
-import { AuthService } from '../auth/auth.service';
+import { Task } from '../../models/task.model';
+import { TaskService } from '../../task/task.service';
+import { AuthService } from '../../auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   newTaskTitle = '';
   errorMessage = '';
   username = '';
+  taskToDelete: Task | null = null;
+  showDeleteConfirm = false;
 
   constructor(private taskService: TaskService, private router: Router, private authService: AuthService) {}
 
@@ -55,13 +57,30 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  deleteTask(task: Task) {
-    if (!task.id) return;
-    this.taskService.deleteTask(task.id).subscribe({
-      next: () => this.tasks = this.tasks.filter(t => t.id !== task.id),
-      error: err => this.errorMessage = err.error || 'Errore durante la cancellazione'
-    });
-  }
+confirmDelete(task: Task) {
+  this.taskToDelete = task;
+  this.showDeleteConfirm = true;
+}
+
+cancelDelete() {
+  this.taskToDelete = null;
+  this.showDeleteConfirm = false;
+}
+
+deleteConfirmed() {
+  if (!this.taskToDelete?.id) return;
+
+  this.taskService.deleteTask(this.taskToDelete.id).subscribe({
+    next: () => {
+      this.tasks = this.tasks.filter(t => t.id !== this.taskToDelete!.id);
+      this.cancelDelete();
+    },
+    error: err => {
+      this.errorMessage = err.error || 'Errore durante la cancellazione';
+      this.cancelDelete();
+    }
+  });
+}
 
   logout() {
     localStorage.removeItem('jwtToken');
