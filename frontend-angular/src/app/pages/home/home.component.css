@@ -17,9 +17,18 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 20px;
   font-weight: 700;
-  color: #1976d2;
+  color: #4F46E5; /* stesso colore del logo (indaco) */
+}
+
+.logo img {
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .nav-right {
