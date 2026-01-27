@@ -144,25 +144,41 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
 }
 
 input[type="checkbox"] {
   width: 18px;
   height: 18px;
   accent-color: #43a047;
-}
-
-.delete-btn {
-  border: none;
-  background: transparent;
-  font-size: 22px;
-  color: #aaa;
   cursor: pointer;
 }
 
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #e2e2e2;
+}
+.delete-btn {  font-size: 15px; color: #d32f2f;}
+
 .delete-btn:hover {
-  color: #d32f2f;
+  background-color: #d48888a9;
+}
+.edit-btn:hover {
+  background-color: #b1b1b1a9;
 }
 
 /* EMPTY */
