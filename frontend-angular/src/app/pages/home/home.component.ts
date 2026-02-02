@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/task.model';
-import { TaskService } from '../../task/task.service';
-import { AuthService } from '../../auth/auth.service';
+import { TaskService } from '../../services/task.service';
+import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';

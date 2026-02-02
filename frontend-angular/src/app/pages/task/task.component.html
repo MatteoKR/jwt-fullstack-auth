@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="logo">
+      <img src="favicon.ico" alt="TaskManager Logo" width="24" height="24" />
+      TaskManager
+    </span>
+  </div>
+
+  <div class="nav-right">
+    <mat-icon class="arrow_back" (click)="goBack()">arrow_back</mat-icon>
+  </div>
+</nav>
+
+
+  <h1 class="page-title">Modifica task</h1>
+  <section class="edit-task-card">
+  <p class="page-subtitle">Hai selezionato il task "{{ originalTitle }}". Modifica il suo titolo in questo campo:</p>
+  <div class="edit-task">
+    <input type="text" [(ngModel)]="task.title" placeholder="Titolo del task" />
+    <button mat-raised-button class="btn-save" (click)="saveTask()">
+      Salva
+    </button>
+  </div>
+</section>

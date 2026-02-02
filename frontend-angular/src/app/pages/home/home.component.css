@@ -64,14 +64,24 @@
 }
 
 .page-title {
-  font-size: 28px;
+  width: fit-content;
+  border-bottom: 2px solid #4F46E5;
+  font-weight: 600;
+  font-size: 25px;
   margin-bottom: 6px;
   color: #222;
 }
 
 .page-subtitle {
-  color: #666;
+  color: #505050;
+  font-size: 16px;
   margin-bottom: 28px;
+}
+
+.page-subtitle,
+.page-title {
+  text-align: center;
+  margin: 0 auto 6px;
 }
 
 /* CARD */

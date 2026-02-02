@@ -3,7 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './core/auth.guard';
-import { TaskComponent } from './task/task.component';
+import { TaskComponent } from './pages/task/task.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
